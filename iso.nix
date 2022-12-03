@@ -15,23 +15,23 @@
     "ecryptfs" 
   ];
   environment = { 
-    systemPackages = with pkgs; [ git vim wget ];
+    systemPackages = with pkgs; [ git vim wget lsof ];
     etc = { 
-      "utils/install.sh" = {
-        source = ./utils/install.sh;
+      "iso_utils/install.sh" = {
+        source = ./iso_utils/install.sh;
         mode = "0700";
       };
-      "utils/partition.sh" = {
-        source = ./utils/partition.sh;
+      "iso_utils/partition.sh" = {
+        source = ./iso_utils/partition.sh;
         mode = "0700";
       };
-      "utils/mem.sh" = {
-        source = ./utils/mem.sh;
+      "iso_utils/mem.sh" = {
+        source = ./iso_utils/mem.sh;
         mode = "0700";
       };
-      "utils/configuration.nix" = { source = ./utils/configuration.nix; };
+      "iso_utils/configuration.nix.bak" = { source = ./iso_utils/configuration.nix.bak; };
     };
   };
 
-  environment.variables = { PATH = [ "/bin" "/usr/bin" "etc/utils" ]; };
+  environment.variables = { PATH = [ "/bin" "/usr/bin" "etc/iso_utils" ]; };
 }
